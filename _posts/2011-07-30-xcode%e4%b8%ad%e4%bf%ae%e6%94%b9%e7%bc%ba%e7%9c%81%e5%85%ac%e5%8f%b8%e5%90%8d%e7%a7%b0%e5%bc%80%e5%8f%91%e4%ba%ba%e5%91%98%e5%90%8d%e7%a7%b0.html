@@ -1,0 +1,40 @@
+---
+layout: post
+title: XCode中修改缺省公司名称/开发人员名称
+tags:
+- MacOSx
+- Obejctive-c
+- xcode
+- 信息
+- 注释
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  views: '481'
+---
+<a href="http://wooce.iteye.com/blog/1071459" target="_blank">原文出处</a>
+
+&nbsp;
+
+1. XCode新建文件后，头部会有开发人员名称，公司名称等信息
+
+// Created by y on 7/30/11.
+// Copyright 2011 imYelo.com. All rights reserved.
+
+要修改这两个名称可通过在terminal中运行以下命令：
+
+<!--more-->
+
+defaults write com.apple.Xcode PBXCustomTemplateMacroDefinitions'{"ORGANIZATIONNAME" = "imYelo.com";}'
+defaults write com.apple.Xcode ORGANIZATIONNAME "Yelo"
+
+defaults write com.apple.Xcode FULLUSERNAME "your name"
+defaults write com.apple.Xcode PBXCustomTemplateMacroDefinitions'{FULLUSERNAME = "your name" ; }'
+
+使用defaults write com.apple.Xcode ... 其实是在修改~/Library/Preferences/com.apple.Xcode.plist
+
+&nbsp;
+
+2. Xcode3.2开始，右击项目-&gt;Get Info-&gt;General里面可以为每个项目设置Organization Name

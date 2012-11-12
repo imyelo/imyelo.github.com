@@ -1,0 +1,35 @@
+---
+layout: post
+title: 在OSX使用锐捷认证的校园网
+tags:
+- MacOSx
+- 工具
+- 折腾
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  views: '523'
+---
+华立上网用的客户端叫安腾网络,应该和锐捷差不多吧
+
+&nbsp;
+
+下载<a href="http://code.google.com/p/mentohust/downloads/list" target="_blank">mentohust_mac.tar.gz</a>
+
+解压后用终端执行：
+
+<!--more-->
+<blockquote>sudo su
+/mentohust_mac/mentohust -u<em>gg110109010xx</em> -p<em>password</em> -n<em>en0</em> -a<em>0</em> -d<em>2</em> -l<em>1</em> -i<em>10.110.83.xx</em> -m<em>255.255.255.0</em> -g<em>10.110.83.254</em> -s<em>10.110.3.3 202.96.128.86 </em>-e<em>780</em> -r<em>120</em> -o<em>8.8.8.8</em> -<em>w</em></blockquote>
+参数的解释可以用mentohust -h查看
+似乎华立现在的网可以选不使用dhcp，也就是-d0
+
+目前测试的结果是，提示发送心跳包以后，会一直发送用户名超时(原因不清楚)，但已经可以上网。
+这时心跳包应该是发送失败的，之后再过14分钟后必定会断网（服务器的设置吧），重新执行一次/mentohust_mac/mentohust 即可。
+虽然麻烦，不过目前只能这样了，不知道有没有更好的解决方法。
+
+&nbsp;
+
+另外在osx下的客户端还有一个叫<a href="http://code.google.com/p/ruijieclient/" target="_blank">RuijieClient</a>，不知道好用不。

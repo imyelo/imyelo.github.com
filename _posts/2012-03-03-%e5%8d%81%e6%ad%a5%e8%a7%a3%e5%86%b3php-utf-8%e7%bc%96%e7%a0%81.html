@@ -1,0 +1,30 @@
+---
+layout: post
+title: ! '[转]十步解决php utf-8编码'
+tags:
+- mysql
+- PHP
+- php
+- utf-8
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  views: '147'
+---
+<a href="http://goby2008.iteye.com/blog/261878" title="原文链接" target="_blank">原文链接</a>
+
+<p>以前说过如果JS文件不是UTF8会在IE有bug，所以JS代码也要用UTF-8。还有数据库也都要用UTF-8。<br />php用UTF-8总结：</p>
+<ol>
+<li>php文件本身必须是UTF-8编码。不像Java会生成class文件，避免这个问题 </li>
+<li>php要输出头：header(”Content-Type: text/html; charset=UTF-8″) </li>
+<li>meta标签无所谓，有header所有浏览器就会按header来解析 </li>
+<li>所有外围都得用UTF8，包括数据库、*.js、*.css(CSS影响倒不大) </li>
+<li>php本身不是Unicode的，所有substr之类的函数得改成mb_substr（需要装mbstring扩展）；或者用iconv转码（基本上的linux都装了，没装的话download、tar、make、make install，很简单的） </li>
+<li>my.ini:<br />[mysql]<br />default-character-set=utf8<br />[mysqld]<br />default-character-set=utf8<br />default-storage-engine=MyISAM<br />在[mysqld]下加入:<br />default-collation=utf8_bin<br />init_connect='SET NAMES utf8' </li>
+<li>在需要做数据库操作的php程序前面加上<br />mb_internal_encoding('utf-8'); </li>
+<li>create table最后边加上ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin </li>
+<li>phpMyAdmin/config.inc.php<br />$cfg['DefaultCharset'] = 'utf-8';<br />$cfg['RecodingEngine'] = 'iconv'; </li>
+<li>phpAdmin导出数据时<br />把"二进制区域使用十六进制显示"的勾去掉 </li>
+</ol>

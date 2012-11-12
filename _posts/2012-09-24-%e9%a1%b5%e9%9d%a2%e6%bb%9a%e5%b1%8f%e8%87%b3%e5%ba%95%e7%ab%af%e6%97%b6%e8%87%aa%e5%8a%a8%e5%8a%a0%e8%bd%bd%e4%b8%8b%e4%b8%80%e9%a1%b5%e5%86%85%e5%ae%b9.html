@@ -1,0 +1,42 @@
+---
+layout: post
+title: 页面滚屏至底端时自动加载下一页内容
+tags:
+- jqm
+- PHP
+- thinkphp
+- thinksns
+- 翻页
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  views: '45'
+---
+<p>最近的项目需要用到thinksns( & thinkphp)和jquerymobile， 所以脚本也针对这个环境编写， 但离开这两个框架只要稍作修改也同样适用。</p>
+<p>在主页面头部导入autoLoadNextPage.js:<br /><br />
+<code><br /><br />
+< s cript src="https://github.com/imyelo/autoLoadNextPage/blob/master/autoLoadNextPage.js"></ s cript><br /><br />
+</code><br /><br />
+调用十分简单, 如:<br /><br />
+<code><br /><br />
+var autoLoad = new autoLoadNextPage("{:U('w3g/Message/load')}&type={$_REQUEST['type']}&{:C('VAR_PAGE')}=", "ul#msgUl", "nav#more").updateList().bindBottom();<br /><br />
+</code><br /><br />
+当然也可以这么写:<br /><br />
+<code><br /><br />
+dataUrl = "{:U('w3g/Message/load')}&type={$_REQUEST['type']}&{:C('VAR_PAGE')}=";<br /><br />
+dataUl = "ul#msgUl";<br /><br />
+dataMore = "nav#more";<br /><br />
+var autoLoad = new autoLoadNextPage(dataUrl, dataUl, dataMore);<br /><br />
+autoLoad.updateList();<br /><br />
+autoLoad..bindBottom();<br /><br />
+</code><br /><br />
+提供分页内容的文件输出JSON，格式为{html:"分页内容", nextpage:下一页页码}, 若使用thinkphp框架, 可以在tpl内照常编写html文件, action的最后不使用<code>$this->display();</code>而是 :<br /><br />
+<code><br /><br />
+output['html'] = $this->fetch();<br /><br />
+output['nextpage'] = nextPage;<br /><br />
+json_encode($output);<br /><br />
+</code></p>
+<p>脚本源码, 2012.09.23, @yelo<br /><br />
+<a href="https://github.com/imyelo/autoLoadNextPage" target="_blank">https://github.com/imyelo/autoLoadNextPage</a><br /><br />
