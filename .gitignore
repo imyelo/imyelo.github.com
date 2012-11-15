@@ -12,3 +12,6 @@ Thumbs.db
 =======
 _site/
 >>>>>>> 57998e1b324e227bc9add34a1126b6b4bcf43185
+
+/server.bat
+/makeUTF.bat
