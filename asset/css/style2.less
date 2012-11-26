@@ -1,0 +1,287 @@
+@dark: #141414;
+@light: #eaeaea;
+@grey: #898989;
+@metry-height: 20px;
+
+@font-face {
+	font-family: 'MuseoSans';
+	src: url('../images/fonts/museosans-300-webfont.eot'); /* IE9 Compat Modes */
+	src: url('../images/fonts/museosans-300-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		url('../images/fonts/museosans-300-webfont.woff') format('woff'), /* Modern Browsers */
+		url('../images/fonts/museosans-300-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+		url('../images/fonts/museosans-300-webfont.svg#museosans-300-webfont') format('svg'); /* Legacy iOS */
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'Electrolize';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../images/fonts/Electrolize.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans Semiblod';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../images/fonts/OpenSans-Semibold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../images/fonts/OpenSans.woff') format('woff');
+}
+.less_setFont (@size: 12px, @family: 'Open Sans'){
+	font-family: '微软雅黑', @family, sans-serif;
+	font-size : @size;
+}
+.less_radius (@radius){
+	-moz-border-radius: @radius; 
+	-webkit-border-radius: @radius; 
+	border-radius: @radius; 
+}
+.less_box_sizing (@sizing: border-box){
+    box-sizing:@sizing;
+    -o-box-sizing:@sizing;
+    -ms-box-sizing:@sizing;
+    -moz-box-sizing:@sizing;
+    -webkit-box-sizing:@sizing;
+}
+
+html, body {
+	height: 100%;
+	background: @grey;
+	.less_setFont(14px, 'Electrolize');
+}
+a {
+	color: @dark;
+}
+.layout {
+	width: 100%;
+	height: 100%;
+	.page {
+		width: 100%;
+	}
+	.page-dark {
+		background: url('../images/bg-dark.jpg');
+		color: @light;
+	}
+	.page-light {
+		background: url('../images/bg-light.png');
+		color: @dark;
+	}
+	#index {
+		.main {
+			width: 100%;
+			height: 206px;
+			i {
+				display: block;
+				margin: 10px auto;
+				&.logo-arrows {
+					background: url('../images/logo-arrow-light.png');
+					// background: #ccc;
+					width: 120px;
+					height: 120px;
+					cursor: pointer;
+					.less_radius(60px);
+					&:hover {
+						background: url('../images/logo-arrow-light-hover.png');
+					}
+				}
+				&.logo-url {
+					background: url('../images/logo-url-light.png');
+					width: 169px;
+					height: 66px;
+				}
+			}
+		}
+		.category {
+			width: 195px;
+			height: 59px;
+			background: url('../images/categories-light.png');
+			position: absolute;
+			// z-index: 1;
+			float: left;
+			@media screen and (min-width: 645px){
+				left: 24px;
+				bottom: 60px;
+			}
+			@media screen and (max-width: 644px){
+				top: 60px;
+				left: 0;
+				right: 0;
+				margin : 0 auto;
+			}
+		}
+		.declaration {
+			position: absolute;
+			// z-index: 1;
+			float: left;
+			bottom: 60px;
+			.less_setFont(10px);
+			@media screen and (min-width: 645px){
+				right: 40px;
+				text-align: right;
+			}
+			@media screen and (max-width: 644px){
+				left: 0;
+				right: 0;
+				text-align: center;
+				margin : 0 auto;
+			}
+			span{	
+				@media screen and (max-width: 644px){
+					display: block;
+				}
+			}
+			i{
+				background-position: bottom;
+			}
+		}
+		.line-footer {
+			position: absolute;
+			bottom: 18px;
+			width: 100%;
+			float: left;
+			display: block;
+		}
+	}
+	#page {
+		.line-header {
+			position: relative;
+			top: 0;
+			width: 100%;
+			float: left;
+			display: block;
+		}
+		.go-header {
+			cursor: pointer;
+		}
+		.navbar {
+			.less_box_sizing();
+			width: 20%;
+			float: left;
+			display: inline;
+			padding: 0 0 0 (15%/12);
+			div {
+				clear: both;
+				float: left;
+				width: 100%;
+				h2 {
+					.less_setFont(24px, 'Open Sans Semiblod');
+					padding: 0 6px 0 9px;
+					font-weight: bold;
+				}
+				.innav {
+					.less_box_sizing();
+					margin: 10px 0 0 0;
+					padding: 0 6px 0 0;
+					width: 100%;
+					float: left;
+					clear: both;
+				}
+				&.logo {
+					padding: @metry-height * 2 0 0 0;
+					height: @metry-height * 2;
+					i {
+						.less_box_sizing();
+						height: 100%;
+						width: 150px;
+						float: right;
+						background-repeat: no-repeat;
+						background-position: 7px 0;
+					}
+				}
+				&.categories {
+					padding: @metry-height 0 (@metry-height * 2) 0;
+					span {
+						.less_box_sizing();
+						float :right;
+						text-align: right;
+						width : 100%;
+						padding: @metry-height @metry-height*2;
+						clear: both;
+						display: block;
+						font-size: 18px;
+						font-weight: dbold;
+						&:hover {
+							background-color: @dark;
+							color: @light;
+						}
+					}
+				}
+				// &.whois {
+				// 	width: 150px;
+				// 	margin: 0 0 (@metry-height) 0;
+				// 	pre {
+				// 		.less_setFont(10px);
+				// 		line-height: 14px;
+				// 		text-align: right;
+				// 	}
+				// }
+				&.link {
+					width: 75%;
+					ul {
+						li {
+							float: right;
+							clear: both;
+						}
+					}
+				}
+			}
+		}
+		.content {
+			width: 75%;
+			float: left;
+			display: inline;
+		}
+	}
+}
+.icon {
+	@size : 40px;
+	width: @size;
+	height: @size;
+	display: inline-block;
+	cursor: pointer;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.icon-sina {
+	background-image : url('../images/icon-weibo-light.png');
+}
+.icon-github {
+	background-image : url('../images/icon-github-light.png');
+}
+.logo-dark {
+	background-image : url('../images/logo-dark.png');
+}
+.bottom-line-strong-dark {
+	border-bottom: 3px solid @dark;
+}
+.bottom-line-dark {
+	border-bottom: 1px solid @dark;
+}
+.bg-light {
+	background: @light;
+}
+.bg-dark {
+	background: @dark;
+}
+.height-2 {
+	height: 2px;
+}
+.height-14 {
+	height: 14px;
+}
+.height-16 {
+	height: 16px;
+}
+
+
+// force-wrap
+// from aliceui
+/* 一般 block-level 元素 */
+.sl-wrap, .sl-wrap td, .sl-wrap th{
+	word-wrap:break-word;
+	word-break:break-all;
+}
