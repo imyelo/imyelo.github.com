@@ -1,6 +1,6 @@
 		<div class="container ui-bg-light-img">
 			<div class="content">
-				<h1><a>{{page.title}}</a></h1>
+				<h1><a href="{{page.url}}">{{page.title}}</a></h1>
 				<article class="article">
 					{{content}}
 				</article>

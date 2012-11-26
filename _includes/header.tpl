@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="{{ site.iytheme.ASSET_PATH }}/js/syntaxhighlight/shCore.js"></script>
 	<script type="text/javascript" src="{{ site.iytheme.ASSET_PATH }}/js/syntaxhighlight/shBrushJScript.js"></script>
 	<link type="text/css" rel="stylesheet" href="{{ site.iytheme.ASSET_PATH }}/css/syntaxhighlight/shCoreDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ site.iytheme.ASSET_PATH }}/css/md.css">
 </head>
 <body>
 	<div class="layout">
