@@ -16,7 +16,7 @@
 		<header class="header ui-bg-dark-img">
 			<div class="categories">
 				<ul>
-					<li><a src="{{ site.url }}">Home</a></li>
+					<li><a href="{{ site.url }}">Home</a></li>
 				</ul>
 			</div>
 			<div class="ui-line ui-bg-light-img h-2"></div>
