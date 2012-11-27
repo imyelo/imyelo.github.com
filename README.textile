@@ -39,6 +39,3 @@ h2. Developer Dependencies
 h2. License
 
 See LICENSE.
-
-有道词典By Tom Preston- ...详细X
-汤姆·普雷斯顿维尔纳,尼克Quaranto,许多很棒的贡献者!
