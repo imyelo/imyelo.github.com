@@ -2,7 +2,7 @@
 layout: post
 type: post
 title: '👉 新站点' 
-categories: ['Blog']
+categories: ['LifeLog']
 tags:
 - blog
 published: true
